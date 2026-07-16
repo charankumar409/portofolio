@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECE Student Toolkit</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <i class="fas fa-microchip"></i>
+          <span>ECE Toolkit</span>
+        </div>
+        <button class="sidebar-toggle" id="sidebarClose"><i class="fas fa-times"></i></button>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-item active" data-page="dashboard">
+          <i class="fas fa-th-large"></i><span>Dashboard</span>
+        </a>
+        <div class="nav-divider"><span>Calculators</span></div>
+        <a href="#cgpa-calculator" class="nav-item" data-page="cgpa-calculator">
+          <i class="fas fa-graduation-cap"></i><span>CGPA Calculator</span>
+        </a>
+        <a href="#electronics-calculator" class="nav-item" data-page="electronics-calculator">
+          <i class="fas fa-bolt"></i><span>Electronics Calculator</span>
+        </a>
+        <a href="#scientific-calculator" class="nav-item" data-page="scientific-calculator">
+          <i class="fas fa-square-root-alt"></i><span>Scientific Calculator</span>
+        </a>
+        <a href="#unit-converter" class="nav-item" data-page="unit-converter">
+          <i class="fas fa-exchange-alt"></i><span>Unit Converter</span>
+        </a>
+        <div class="nav-divider"><span>Resources</span></div>
+        <a href="#notes" class="nav-item" data-page="notes">
+          <i class="fas fa-book"></i><span>Electronics Notes</span>
+        </a>
+        <a href="#formulas" class="nav-item" data-page="formulas">
+          <i class="fas fa-sigma"></i><span>Formula Sheets</span>
+        </a>
+        <a href="#papers" class="nav-item" data-page="papers">
+          <i class="fas fa-file-alt"></i><span>Previous Papers</span>
+        </a>
+        <div class="nav-divider"><span>More</span></div>
+        <a href="#about" class="nav-item" data-page="about">
+          <i class="fas fa-info-circle"></i><span>About</span>
+        </a>
+        <a href="#settings" class="nav-item" data-page="settings">
+          <i class="fas fa-cog"></i><span>Settings</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top Navbar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle" id="sidebarOpen"><i class="fas fa-bars"></i></button>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search..." id="globalSearch">
+          </div>
+        </div>
+        <div class="topbar-right">
+          <button class="icon-btn" id="themeToggle" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="icon-btn" title="Notifications">
+            <i class="fas fa-bell"></i>
+            <span class="badge">3</span>
+          </button>
+          <div class="user-avatar">A</div>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <div class="content-area">
+
+        <!-- Dashboard -->
+        <section class="page active" id="page-dashboard">
+          <div class="page-header">
+            <div>
+              <h1>Dashboard</h1>
+              <p class="page-subtitle">Welcome back, ECE Student! Here's your overview.</p>
+            </div>
+            <div class="header-date" id="currentDate"></div>
+          </div>
+
+          <div class="welcome-card">
+            <div class="welcome-text">
+              <h2>Welcome to ECE Student Toolkit</h2>
+              <p>Your all-in-one academic companion. Access calculators, notes, formulas, and previous papers — all in one place.</p>
+              <div class="welcome-stats">
+                <span><i class="fas fa-calculator"></i> 6 Tools</span>
+                <span><i class="fas fa-book"></i> 24 Notes</span>
+                <span><i class="fas fa-sigma"></i> 42 Formulas</span>
+                <span><i class="fas fa-file-alt"></i> 18 Papers</span>
+              </div>
+            </div>
+            <div class="welcome-illustration">
+              <i class="fas fa-microchip"></i>
+            </div>
+          </div>
+
+          <div class="quick-access">
+            <h3>Quick Access</h3>
+            <div class="quick-grid">
+              <a href="#cgpa-calculator" class="quick-card" data-nav>
+                <i class="fas fa-graduation-cap"></i>
+                <span>CGPA Calc</span>
+              </a>
+              <a href="#electronics-calculator" class="quick-card" data-nav>
+                <i class="fas fa-bolt"></i>
+                <span>Electronics</span>
+              </a>
+              <a href="#scientific-calculator" class="quick-card" data-nav>
+                <i class="fas fa-square-root-alt"></i>
+                <span>Scientific</span>
+              </a>
+              <a href="#unit-converter" class="quick-card" data-nav>
+                <i class="fas fa-exchange-alt"></i>
+                <span>Converter</span>
+              </a>
+              <a href="#notes" class="quick-card" data-nav>
+                <i class="fas fa-book"></i>
+                <span>Notes</span>
+              </a>
+              <a href="#formulas" class="quick-card" data-nav>
+                <i class="fas fa-sigma"></i>
+                <span>Formulas</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <div class="card summary-card">
+              <div class="card-header"><h3><i class="fas fa-chart-bar"></i> Study Progress</h3></div>
+              <div class="card-body">
+                <div class="progress-item">
+                  <div class="progress-label"><span>Digital Electronics</span><span>75%</span></div>
+                  <div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
+                </div>
+                <div class="progress-item">
+                  <div class="progress-label"><span>Analog Electronics</span><span>60%</span></div>
+                  <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+                </div>
+                <div class="progress-item">
+                  <div class="progress-label"><span>Communication Systems</span><span>45%</span></div>
+                  <div class="progress-bar"><div class="progress-fill" style="width:45%"></div></div>
+                </div>
+                <div class="progress-item">
+                  <div class="progress-label"><span>Signals & Systems</span><span>80%</span></div>
+                  <div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div>
+                </div>
+                <div class="progress-item">
+                  <div class="progress-label"><span>VLSI Design</span><span>35%</span></div>
+                  <div class="progress-bar"><div class="progress-fill" style="width:35%"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header"><h3><i class="fas fa-clock"></i> Recent Activity</h3></div>
+              <div class="card-body">
+                <div class="activity-item"><i class="fas fa-file-alt"></i><div><p>Downloaded DSP Previous Paper</p><small>2 hours ago</small></div></div>
+                <div class="activity-item"><i class="fas fa-sigma"></i><div><p>Viewed Circuit Theory Formulas</p><small>5 hours ago</small></div></div>
+                <div class="activity-item"><i class="fas fa-calculator"></i><div><p>Calculated CGPA - Semester 4</p><small>Yesterday</small></div></div>
+                <div class="activity-item"><i class="fas fa-book"></i><div><p>Bookmarked Embedded Systems Notes</p><small>2 days ago</small></div></div>
+                <div class="activity-item"><i class="fas fa-exchange-alt"></i><div><p>Used Unit Converter - Frequency</p><small>3 days ago</small></div></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header"><h3><i class="fas fa-star"></i> Favorite Resources</h3></div>
+              <div class="card-body">
+                <div class="fav-item"><i class="fas fa-book" style="color:#6366f1"></i><span>Digital Electronics Notes</span></div>
+                <div class="fav-item"><i class="fas fa-sigma" style="color:#f59e0b"></i><span>Circuit Theory Formulas</span></div>
+                <div class="fav-item"><i class="fas fa-file-alt" style="color:#10b981"></i><span>Communication Papers</span></div>
+                <div class="fav-item"><i class="fas fa-book" style="color:#ec4899"></i><span>Analog Electronics Notes</span></div>
+                <div class="fav-item"><i class="fas fa-sigma" style="color:#3b82f6"></i><span>Control Systems Formulas</span></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header"><h3><i class="fas fa-quote-right"></i> Study Motivation</h3></div>
+              <div class="card-body">
+                <div class="quote-card">
+                  <div class="quote-text" id="dailyQuote">"The only way to do great work is to love what you do."</div>
+                  <div class="quote-author" id="quoteAuthor">— Steve Jobs</div>
+                  <button class="btn btn-sm" id="newQuoteBtn"><i class="fas fa-sync"></i> New Quote</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card summary-card summary-tools">
+              <div class="card-header"><h3><i class="fas fa-tools"></i> Available Tools</h3></div>
+              <div class="card-body">
+                <div class="summary-grid">
+                  <div class="summary-item"><span class="sum-num">6</span><span>Calculators</span></div>
+                  <div class="summary-item"><span class="sum-num">24</span><span>Note Sets</span></div>
+                  <div class="summary-item"><span class="sum-num">42</span><span>Formulas</span></div>
+                  <div class="summary-item"><span class="sum-num">18</span><span>Papers</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card summary-card">
+              <div class="card-header"><h3><i class="fas fa-calendar-alt"></i> Upcoming</h3></div>
+              <div class="card-body">
+                <div class="upcoming-item"><span class="upcoming-date"><span>15</span>Aug</span><div><p>Analog Electronics Exam</p><small>Semester 5</small></div></div>
+                <div class="upcoming-item"><span class="upcoming-date"><span>22</span>Aug</span><div><p>Microprocessors Lab</p><small>Practical Submission</small></div></div>
+                <div class="upcoming-item"><span class="upcoming-date"><span>05</span>Sep</span><div><p>DSP Assignment Due</p><small>Week 6</small></div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CGPA Calculator -->
+        <section class="page" id="page-cgpa-calculator">
+          <div class="page-header">
+            <h1>CGPA Calculator</h1>
+            <p class="page-subtitle">Calculate your SGPA and CGPA semester by semester.</p>
+          </div>
+          <div class="cgpa-container">
+            <div class="card cgpa-input-section">
+              <div class="card-header">
+                <h3>Semester <span id="semesterNumber">1</span></h3>
+                <div class="cgpa-controls">
+                  <button class="btn btn-sm btn-outline" id="addSubjectBtn"><i class="fas fa-plus"></i> Add Subject</button>
+                  <button class="btn btn-sm btn-outline" id="resetCGPABtn"><i class="fas fa-undo"></i> Reset</button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="cgpa-table" id="cgpaTable">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Subject</th>
+                        <th>Credits</th>
+                        <th>Grade</th>
+                        <th>Grade Points</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody id="cgpaTableBody">
+                    </tbody>
+                  </table>
+                </div>
+                <div class="semester-summary">
+                  <div class="sum-row">
+                    <span>Total Credits: <strong id="totalCredits">0</strong></span>
+                    <span>Total Points: <strong id="totalPoints">0</strong></span>
+                    <span>SGPA: <strong id="sgpaResult">0.00</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cgpa-sidebar">
+              <div class="card cgpa-result-card">
+                <div class="card-header"><h3>CGPA Summary</h3></div>
+                <div class="card-body">
+                  <div class="cgpa-big" id="cgpaResult">0.00</div>
+                  <p>Overall CGPA</p>
+                  <div class="semester-select">
+                    <label>Add Semester</label>
+                    <button class="btn btn-sm btn-primary" id="addSemesterBtn"><i class="fas fa-plus"></i> Add Semester</button>
+                  </div>
+                  <div class="semester-list" id="semesterList"></div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header"><h3>Grade Distribution</h3></div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="gradeChart"></canvas>
+                  </div>
+                  <div class="grade-legend" id="gradeLegend"></div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header"><h3>Grade Reference</h3></div>
+                <div class="card-body">
+                  <div class="grade-ref-grid">
+                    <span>S - 10</span><span>A - 9</span><span>B - 8</span>
+                    <span>C - 7</span><span>D - 6</span><span>E - 5</span>
+                    <span>F - 0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Electronics Calculator -->
+        <section class="page" id="page-electronics-calculator">
+          <div class="page-header">
+            <h1>Electronics Calculator</h1>
+            <p class="page-subtitle">Quick calculations for common electronics engineering problems.</p>
+          </div>
+          <div class="calc-tabs">
+            <button class="calc-tab active" data-calc="ohms-law">Ohm's Law</button>
+            <button class="calc-tab" data-calc="voltage-divider">Voltage Divider</button>
+            <button class="calc-tab" data-calc="led-resistor">LED Resistor</button>
+            <button class="calc-tab" data-calc="power">Power Calculator</button>
+            <button class="calc-tab" data-calc="frequency">Frequency Calculator</button>
+          </div>
+          <div class="calc-panels">
+            <!-- Ohm's Law -->
+            <div class="calc-panel active" id="calc-ohms-law">
+              <div class="card">
+                <div class="card-header"><h3>Ohm's Law Calculator</h3><span class="formula-badge">V = I × R</span></div>
+                <div class="card-body">
+                  <div class="calc-grid">
+                    <div class="calc-inputs">
+                      <div class="input-group"><label>Voltage (V)</label><input type="number" id="ohmVoltage" step="any" placeholder="Volts"></div>
+                      <div class="input-group"><label>Current (I)</label><input type="number" id="ohmCurrent" step="any" placeholder="Amperes"></div>
+                      <div class="input-group"><label>Resistance (R)</label><input type="number" id="ohmResistance" step="any" placeholder="Ohms"></div>
+                      <button class="btn btn-primary" id="calcOhmBtn">Calculate</button>
+                      <button class="btn btn-outline btn-sm" id="resetOhmBtn">Reset</button>
+                    </div>
+                    <div class="calc-result">
+                      <div class="result-item"><span>Voltage:</span><strong id="ohmResultV">—</strong></div>
+                      <div class="result-item"><span>Current:</span><strong id="ohmResultI">—</strong></div>
+                      <div class="result-item"><span>Resistance:</span><strong id="ohmResultR">—</strong></div>
+                      <div class="result-item"><span>Power:</span><strong id="ohmResultP">—</strong></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Voltage Divider -->
+            <div class="calc-panel" id="calc-voltage-divider">
+              <div class="card">
+                <div class="card-header"><h3>Voltage Divider Calculator</h3><span class="formula-badge">Vout = Vin × R2 / (R1 + R2)</span></div>
+                <div class="card-body">
+                  <div class="calc-grid">
+                    <div class="calc-inputs">
+                      <div class="input-group"><label>Input Voltage (Vin)</label><input type="number" id="vdVin" step="any" placeholder="Volts"></div>
+                      <div class="input-group"><label>R1 (kΩ)</label><input type="number" id="vdR1" step="any" placeholder="kilo-ohms"></div>
+                      <div class="input-group"><label>R2 (kΩ)</label><input type="number" id="vdR2" step="any" placeholder="kilo-ohms"></div>
+                      <button class="btn btn-primary" id="calcVdBtn">Calculate</button>
+                      <button class="btn btn-outline btn-sm" id="resetVdBtn">Reset</button>
+                    </div>
+                    <div class="calc-result">
+                      <div class="result-item"><span>Output Voltage:</span><strong id="vdResult">—</strong></div>
+                      <div class="result-item"><span>Current:</span><strong id="vdCurrent">—</strong></div>
+                      <div class="result-item"><span>Power Dissipation:</span><strong id="vdPower">—</strong></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- LED Resistor -->
+            <div class="calc-panel" id="calc-led-resistor">
+              <div class="card">
+                <div class="card-header"><h3>LED Resistor Calculator</h3><span class="formula-badge">R = (Vs - Vf) / If</span></div>
+                <div class="card-body">
+                  <div class="calc-grid">
+                    <div class="calc-inputs">
+                      <div class="input-group"><label>Supply Voltage (Vs)</label><input type="number" id="ledVs" step="any" placeholder="Volts"></div>
+                      <div class="input-group"><label>LED Forward Voltage (Vf)</label><input type="number" id="ledVf" step="any" placeholder="Volts"></div>
+                      <div class="input-group"><label>LED Forward Current (If)</label><input type="number" id="ledIf" step="any" placeholder="mA"></div>
+                      <button class="btn btn-primary" id="calcLedBtn">Calculate</button>
+                      <button class="btn btn-outline btn-sm" id="resetLedBtn">Reset</button>
+                    </div>
+                    <div class="calc-result">
+                      <div class="result-item"><span>Resistor Value:</span><strong id="ledResult">—</strong></div>
+                      <div class="result-item"><span>Nearest Standard:</span><strong id="ledStandard">—</strong></div>
+                      <div class="result-item"><span>Power Dissipation:</span><strong id="ledPower">—</strong></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Power Calculator -->
+            <div class="calc-panel" id="calc-power">
+              <div class="card">
+                <div class="card-header"><h3>Power Calculator</h3><span class="formula-badge">P = V × I = I²R = V²/R</span></div>
+                <div class="card-body">
+                  <div class="calc-grid">
+                    <div class="calc-inputs">
+                      <div class="input-group"><label>Voltage (V)</label><input type="number" id="pwVoltage" step="any" placeholder="Volts"></div>
+                      <div class="input-group"><label>Current (I)</label><input type="number" id="pwCurrent" step="any" placeholder="Amperes"></div>
+                      <div class="input-group"><label>Resistance (R)</label><input type="number" id="pwResistance" step="any" placeholder="Ohms"></div>
+                      <button class="btn btn-primary" id="calcPwBtn">Calculate</button>
+                      <button class="btn btn-outline btn-sm" id="resetPwBtn">Reset</button>
+                    </div>
+                    <div class="calc-result">
+                      <div class="result-item"><span>Power (P):</span><strong id="pwResult">—</strong></div>
+                      <div class="result-item"><span>Formula Used:</span><strong id="pwFormula">—</strong></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Frequency Calculator -->
+            <div class="calc-panel" id="calc-frequency">
+              <div class="card">
+                <div class="card-header"><h3>Frequency Calculator</h3><span class="formula-badge">f = 1 / T</span></div>
+                <div class="card-body">
+                  <div class="calc-grid">
+                    <div class="calc-inputs">
+                      <div class="input-group"><label>Period (T)</label><input type="number" id="freqPeriod" step="any" placeholder="Seconds"></div>
+                      <div class="input-group"><label>Frequency (f)</label><input type="number" id="freqValue" step="any" placeholder="Hz"></div>
+                      <div class="input-group">
+                        <label>Unit</label>
+                        <select id="freqUnit">
+                          <option value="Hz">Hz</option><option value="kHz">kHz</option><option value="MHz">MHz</option><option value="GHz">GHz</option>
+                        </select>
+                      </div>
+                      <button class="btn btn-primary" id="calcFreqBtn">Calculate</button>
+                      <button class="btn btn-outline btn-sm" id="resetFreqBtn">Reset</button>
+                    </div>
+                    <div class="calc-result">
+                      <div class="result-item"><span>Frequency:</span><strong id="freqResult">—</strong></div>
+                      <div class="result-item"><span>Period:</span><strong id="periodResult">—</strong></div>
+                      <div class="result-item"><span>Angular Frequency:</span><strong id="angularResult">—</strong></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Scientific Calculator -->
+        <section class="page" id="page-scientific-calculator">
+          <div class="page-header">
+            <h1>Scientific Calculator</h1>
+            <p class="page-subtitle">Advanced mathematical and engineering calculations.</p>
+          </div>
+          <div class="sci-calc-container">
+            <div class="card">
+              <div class="card-body">
+                <div class="sci-display">
+                  <div class="sci-expression" id="sciExpression"></div>
+                  <div class="sci-result" id="sciResult">0</div>
+                </div>
+                <div class="sci-buttons">
+                  <button class="sci-btn sci-fn" data-action="sin">sin</button>
+                  <button class="sci-btn sci-fn" data-action="cos">cos</button>
+                  <button class="sci-btn sci-fn" data-action="tan">tan</button>
+                  <button class="sci-btn sci-fn" data-action="log">log</button>
+                  <button class="sci-btn sci-fn" data-action="ln">ln</button>
+                  <button class="sci-btn sci-fn" data-action="sqrt">√</button>
+                  <button class="sci-btn sci-fn" data-action="square">x²</button>
+                  <button class="sci-btn sci-fn" data-action="cube">x³</button>
+                  <button class="sci-btn sci-fn" data-action="inv">1/x</button>
+                  <button class="sci-btn sci-fn" data-action="fact">x!</button>
+                  <button class="sci-btn sci-fn" data-action="pi">π</button>
+                  <button class="sci-btn sci-fn" data-action="e">e</button>
+                  <button class="sci-btn sci-op" data-action="(">(</button>
+                  <button class="sci-btn sci-op" data-action=")">)</button>
+                  <button class="sci-btn sci-op" data-action="^">xʸ</button>
+                  <button class="sci-btn sci-op" data-action="%">%</button>
+                  <button class="sci-btn sci-num" data-action="7">7</button>
+                  <button class="sci-btn sci-num" data-action="8">8</button>
+                  <button class="sci-btn sci-num" data-action="9">9</button>
+                  <button class="sci-btn sci-op" data-action="/">÷</button>
+                  <button class="sci-btn sci-num" data-action="4">4</button>
+                  <button class="sci-btn sci-num" data-action="5">5</button>
+                  <button class="sci-btn sci-num" data-action="6">6</button>
+                  <button class="sci-btn sci-op" data-action="*">×</button>
+                  <button class="sci-btn sci-num" data-action="1">1</button>
+                  <button class="sci-btn sci-num" data-action="2">2</button>
+                  <button class="sci-btn sci-num" data-action="3">3</button>
+                  <button class="sci-btn sci-op" data-action="-">−</button>
+                  <button class="sci-btn sci-num" data-action="0">0</button>
+                  <button class="sci-btn sci-num" data-action=".">.</button>
+                  <button class="sci-btn sci-fn" data-action="pm">±</button>
+                  <button class="sci-btn sci-op" data-action="+">+</button>
+                  <button class="sci-btn sci-clear" data-action="clear">AC</button>
+                  <button class="sci-btn sci-clear" data-action="backspace">⌫</button>
+                  <button class="sci-btn sci-eq" data-action="equals">=</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Unit Converter -->
+        <section class="page" id="page-unit-converter">
+          <div class="page-header">
+            <h1>Unit Converter</h1>
+            <p class="page-subtitle">Convert between different units of measurement.</p>
+          </div>
+          <div class="converter-container">
+            <div class="card">
+              <div class="card-header">
+                <h3>Unit Converter</h3>
+                <div class="converter-category-select">
+                  <select id="convCategory">
+                    <option value="voltage">Voltage</option>
+                    <option value="current">Current</option>
+                    <option value="resistance">Resistance</option>
+                    <option value="power">Power</option>
+                    <option value="frequency">Frequency</option>
+                    <option value="length">Length</option>
+                    <option value="weight">Weight</option>
+                    <option value="temperature">Temperature</option>
+                    <option value="area">Area</option>
+                    <option value="volume">Volume</option>
+                    <option value="time">Time</option>
+                    <option value="speed">Speed</option>
+                    <option value="digital">Digital Storage</option>
+                  </select>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="converter-inputs">
+                  <div class="input-group">
+                    <label>From</label>
+                    <input type="number" id="convInput" step="any" placeholder="Enter value">
+                  </div>
+                  <div class="input-group">
+                    <label>From Unit</label>
+                    <select id="convFromUnit"></select>
+                  </div>
+                  <button class="btn btn-icon" id="swapUnitsBtn"><i class="fas fa-exchange-alt"></i></button>
+                  <div class="input-group">
+                    <label>To Unit</label>
+                    <select id="convToUnit"></select>
+                  </div>
+                  <div class="input-group">
+                    <label>Result</label>
+                    <input type="text" id="convResult" readonly placeholder="Result">
+                  </div>
+                </div>
+                <div class="conversion-formula" id="convFormula"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Electronics Notes -->
+        <section class="page" id="page-notes">
+          <div class="page-header">
+            <h1>Electronics Notes</h1>
+            <p class="page-subtitle">Study materials organized by subject categories.</p>
+          </div>
+          <div class="notes-toolbar">
+            <div class="search-box">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Search notes..." id="notesSearch">
+            </div>
+            <div class="filter-tabs" id="notesFilters">
+              <button class="filter-tab active" data-filter="all">All</button>
+              <button class="filter-tab" data-filter="digital">Digital</button>
+              <button class="filter-tab" data-filter="analog">Analog</button>
+              <button class="filter-tab" data-filter="signals">Signals</button>
+              <button class="filter-tab" data-filter="communication">Communication</button>
+              <button class="filter-tab" data-filter="microprocessor">Microprocessor</button>
+              <button class="filter-tab" data-filter="embedded">Embedded</button>
+              <button class="filter-tab" data-filter="vlsi">VLSI</button>
+              <button class="filter-tab" data-filter="dsp">DSP</button>
+            </div>
+          </div>
+          <div class="notes-grid" id="notesGrid"></div>
+        </section>
+
+        <!-- Formula Sheets -->
+        <section class="page" id="page-formulas">
+          <div class="page-header">
+            <h1>Formula Sheets</h1>
+            <p class="page-subtitle">Essential formulas for ECE subjects.</p>
+          </div>
+          <div class="formulas-toolbar">
+            <div class="search-box">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Search formulas..." id="formulaSearch">
+            </div>
+            <div class="filter-tabs" id="formulaFilters">
+              <button class="filter-tab active" data-filter="all">All</button>
+              <button class="filter-tab" data-filter="circuit">Circuit Theory</button>
+              <button class="filter-tab" data-filter="digital">Digital</button>
+              <button class="filter-tab" data-filter="analog">Analog</button>
+              <button class="filter-tab" data-filter="communication">Communication</button>
+              <button class="filter-tab" data-filter="signals">Signals</button>
+              <button class="filter-tab" data-filter="control">Control</button>
+              <button class="filter-tab" data-filter="electromagnetics">Electromagnetics</button>
+            </div>
+          </div>
+          <div class="formulas-grid" id="formulasGrid"></div>
+        </section>
+
+        <!-- Previous Papers -->
+        <section class="page" id="page-papers">
+          <div class="page-header">
+            <h1>Previous Examination Papers</h1>
+            <p class="page-subtitle">Browse and download previous year question papers.</p>
+          </div>
+          <div class="papers-toolbar">
+            <div class="search-box">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Search papers..." id="papersSearch">
+            </div>
+            <div class="filter-tabs" id="papersFilters">
+              <button class="filter-tab active" data-filter="all">All</button>
+              <button class="filter-tab" data-filter="2024">2024</button>
+              <button class="filter-tab" data-filter="2023">2023</button>
+              <button class="filter-tab" data-filter="2022">2022</button>
+              <button class="filter-tab" data-filter="mid">Mid Sem</button>
+              <button class="filter-tab" data-filter="end">End Sem</button>
+            </div>
+          </div>
+          <div class="papers-grid" id="papersGrid"></div>
+        </section>
+
+        <!-- About -->
+        <section class="page" id="page-about">
+          <div class="page-header">
+            <h1>About ECE Student Toolkit</h1>
+            <p class="page-subtitle">Learn more about this project.</p>
+          </div>
+          <div class="about-container">
+            <div class="card about-hero">
+              <div class="card-body" style="text-align:center;padding:3rem">
+                <i class="fas fa-microchip" style="font-size:4rem;color:var(--primary)"></i>
+                <h2>ECE Student Toolkit</h2>
+                <p style="max-width:600px;margin:1rem auto">Version 1.0 — A comprehensive academic companion designed specifically for Electronics and Communication Engineering students.</p>
+              </div>
+            </div>
+            <div class="about-grid">
+              <div class="card">
+                <div class="card-header"><h3><i class="fas fa-bullseye"></i> Purpose</h3></div>
+                <div class="card-body">
+                  <p>The ECE Student Toolkit aims to provide a centralized platform where ECE students can access all essential academic tools, study materials, and resources without switching between multiple applications.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header"><h3><i class="fas fa-star"></i> Features</h3></div>
+                <div class="card-body">
+                  <ul class="feature-list">
+                    <li><i class="fas fa-calculator"></i> CGPA, Electronics & Scientific Calculators</li>
+                    <li><i class="fas fa-exchange-alt"></i> Engineering Unit Converter</li>
+                    <li><i class="fas fa-book"></i> Organized Electronics Notes</li>
+                    <li><i class="fas fa-sigma"></i> Categorized Formula Sheets</li>
+                    <li><i class="fas fa-file-alt"></i> Previous Exam Papers Repository</li>
+                    <li><i class="fas fa-palette"></i> Light/Dark Theme Support</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header"><h3><i class="fas fa-code"></i> Technology</h3></div>
+                <div class="card-body">
+                  <div class="tech-stack">
+                    <span><i class="fab fa-html5"></i> HTML5</span>
+                    <span><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span><i class="fab fa-js"></i> JavaScript</span>
+                    <span><i class="fas fa-chart-bar"></i> Chart.js</span>
+                    <span><i class="fas fa-paint-brush"></i> Font Awesome</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header"><h3><i class="fas fa-user"></i> Developer</h3></div>
+                <div class="card-body">
+                  <p>Built with care for ECE students everywhere. This open-source project welcomes contributions and suggestions.</p>
+                  <p style="margin-top:0.5rem"><i class="fas fa-envelope"></i> support@ecetoolkit.dev</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Settings -->
+        <section class="page" id="page-settings">
+          <div class="page-header">
+            <h1>Settings</h1>
+            <p class="page-subtitle">Customize your experience.</p>
+          </div>
+          <div class="settings-container">
+            <div class="card">
+              <div class="card-header"><h3><i class="fas fa-palette"></i> Appearance</h3></div>
+              <div class="card-body">
+                <div class="setting-item">
+                  <div><strong>Theme</strong><p>Choose between light and dark mode.</p></div>
+                  <div class="theme-switch-wrapper">
+                    <button class="theme-option active" data-theme="light"><i class="fas fa-sun"></i> Light</button>
+                    <button class="theme-option" data-theme="dark"><i class="fas fa-moon"></i> Dark</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header"><h3><i class="fas fa-cog"></i> General</h3></div>
+              <div class="card-body">
+                <div class="setting-item">
+                  <div><strong>Reset Settings</strong><p>Restore all settings to their default values.</p></div>
+                  <button class="btn btn-outline" id="resetSettingsBtn"><i class="fas fa-undo"></i> Reset All</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header"><h3><i class="fas fa-info-circle"></i> App Info</h3></div>
+              <div class="card-body">
+                <div class="setting-info"><span>Version</span><span>1.0.0</span></div>
+                <div class="setting-info"><span>Built with</span><span>HTML, CSS, JavaScript</span></div>
+                <div class="setting-info"><span>Storage Used</span><span id="storageUsed">0 KB</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
